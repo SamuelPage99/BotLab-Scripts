@@ -1,3 +1,15 @@
+{-| Drone management -
+
+If the ship is moving - not using Sentry Drones
+                      - use optimal set of drones based on distance (could be enhanced with target ship size)
+
+If the ship is not moving - use Sentry Drones if target distance is far away
+                          - otherwise, use optimal set of drones based on distance (could be enhanced with target ship size)
+                      
+
+
+-}
+
 droneManagement : BotDecisionContext -> SeeUndockingComplete -> List OverviewWindowEntry -> DecisionPathNode
 droneManagement context seeUndockingComplete overviewEntriesToLock =
     if (context.readingFromGameClient |> shipManeuverIsOrbit) || (context.readingFromGameClient |> shipManeuverIsApproach) then
